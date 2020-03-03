@@ -17,7 +17,7 @@ public class Withdrawal extends Transaction {
     private Screen screen;
     private BankDatabase database;
     
-    public Withdrawal(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase, Keypad keypad, CashDispenser cashDispenser){
+    public Withdrawal(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase, Keypad keypad, CashDispenser cashDispenser) {
         super(userAccountNumber, atmScreen,atmBankDatabase);
         this.keypad = keypad;
         dispenser = cashDispenser;
@@ -27,11 +27,11 @@ public class Withdrawal extends Transaction {
 }
     
     @Override
-    public void execute(){
+    public void execute() {
             screen.displayMessage("Enter the amount to withdraw ");
             withdrawAmount = keypad.getInput();
             dispenser.dispenseCash(withdrawAmount);
             database.debit(account, withdrawAmount);
             screen.displayMessage("Please take your cash.");
-    }       
+    }
 }
