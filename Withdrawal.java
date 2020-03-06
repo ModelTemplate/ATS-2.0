@@ -17,7 +17,7 @@ public class Withdrawal extends Transaction {
     public Withdrawal(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase, Keypad atmKeypad, CashDispenser atmCashDispenser) {
     	super(userAccountNumber, atmScreen, atmBankDatabase);
         this.keypad = atmKeypad;
-        dispenser = atmCashDispenser;
+        this.dispenser = atmCashDispenser;
     }
 
     // overridden, inherited abstract method from superclass
@@ -36,14 +36,11 @@ public class Withdrawal extends Transaction {
                     screen.displayMessageLine( "\nYour cash has been dispensed. Please take your cash now.");
                 } else {
                     screen.displayMessageLine( "\nInsufficient funds available in the ATM.\n\nPlease choose a smaller amount.");
+                    execute();
                 }
             }
         } else {
             screen.displayMessageLine("\nCanceling transaction...");
-        }
-
-        if (!isCashDispensed && withdrawAmount != CANCELED) {
-            execute();
         }
     }
 }
