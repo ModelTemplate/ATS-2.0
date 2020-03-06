@@ -5,16 +5,18 @@ package atmcasestudy;
  * @author ATS-2.0
  */
 public class Withdrawal extends Transaction {
-    // fields inherited from superclass:
-    // int accountNumber
-    // Screen screen
-    // BankDatabase bankDataBase
+    private int accountNumber;
+    private Screen screen;
+    private BankDatabase bankDatabase;
     private Keypad keypad;
     private CashDispenser dispenser;
     private final int CANCELED = 6;  // keypad input to cancel withdrawal
 
     public Withdrawal(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase, Keypad atmKeypad, CashDispenser atmCashDispenser) {
     	super(userAccountNumber, atmScreen, atmBankDatabase);
+        this.accountNumber = super.getAccountNumber();
+        this.screen = super.getScreen();
+        this.bankDatabase = super.getBankDatabase();
         this.keypad = atmKeypad;
         this.dispenser = atmCashDispenser;
     }
@@ -23,13 +25,13 @@ public class Withdrawal extends Transaction {
     // executes withdrawal use case
     public void execute() {
         this.displayWithdrawalMenu();
-        int withdrawAmount = this.displayMenuOfAmount();
+        int withdrawAmount = this.getWithdrawalAmount();
 
         if (withdrawAmount != CANCELED) {
-            int availableBalance = bankDataBase.getAvailableBalance(getAccountNumber());
-            if (widthdrawAmount <= availableBalance && dispenser.isSufficientCashAvailable(withdrawAmount)) {
-                bankDataBase.debit(getAccountNumber(), withdrawAmount);
-                cashDispenser.dispenseCash(withdrawAmount);
+            double availableBalance = bankDatabase.getAvailableBalance(accountNumber);
+            if (withdrawAmount <= availableBalance && dispenser.isSufficientCashAvailable(withdrawAmount)) {
+                bankDatabase.debit(getAccountNumber(), withdrawAmount);
+                dispenser.dispenseCash(withdrawAmount);
                 screen.displayMessageLine( "Your cash has been dispensed. Please take your cash now.");
             } else {
                 screen.displayMessageLine( "Insufficient funds.\nPlease choose a smaller amount.");
@@ -64,10 +66,10 @@ public class Withdrawal extends Transaction {
 
     // displays menu of all possible inputs by user for withdrawal
     private void displayWithdrawalMenu() {
-        screen.displayMessageLine("Withdrawal Menu:");
+        screen.displayMessageLine("\nWithdrawal Menu:");
         screen.displayMessageLine("1 - $20      4 - $100");
         screen.displayMessageLine("2 - $40      5 - $200");
         screen.displayMessageLine("3 - $60      6 - Cancel transaction");
-        screen.displayMessageLine("Please choose a withdrawal amount.")
+        screen.displayMessageLine("Please choose a withdrawal amount.");
     }
 }
