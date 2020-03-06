@@ -7,13 +7,13 @@ package atmcasestudy;
 public class BalanceInquiry extends Transaction {
     private int account;
     private Screen screen;
-    private BankDatabase database;
+    private BankDatabase bankDatabase;
 
     public BalanceInquiry(int accountNumber, Screen atmScreen, BankDatabase atmDatabase) {
         super(accountNumber, atmScreen,atmDatabase);
         this.account = super.getAccountNumber();
         this.screen = super.getScreen();
-        this.database = super.getBankDatabase();
+        this.bankDatabase = super.getBankDatabase();
     }
 
     // overridden, inherited abstract method from superclass
