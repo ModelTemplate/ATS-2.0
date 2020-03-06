@@ -11,7 +11,6 @@ public class Withdrawal extends Transaction {
     // BankDatabase bankDataBase
     private Keypad keypad;
     private CashDispenser dispenser;
-    private boolean isCashDispensed = false;
     private final static int CANCELED = 6;  // keypad input to cancel withdrawal
 
     public Withdrawal(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase, Keypad atmKeypad, CashDispenser atmCashDispenser) {
@@ -32,12 +31,11 @@ public class Withdrawal extends Transaction {
                 if (dispenser.isSufficientCashAvailable(withdrawAmount)) {
                     bankDataBase.debit(getAccountNumber(), withdrawAmount);
                     cashDispenser.dispenseCash(withdrawAmount);
-                    isCashDispensed = true;
                     screen.displayMessageLine( "\nYour cash has been dispensed. Please take your cash now.");
-                } else {
-                    screen.displayMessageLine( "\nInsufficient funds available in the ATM.\n\nPlease choose a smaller amount.");
-                    execute();
                 }
+            } else {
+                screen.displayMessageLine( "\nInsufficient funds available in the ATM.\n\nPlease choose a smaller amount.");
+                execute();
             }
         } else {
             screen.displayMessageLine("\nCanceling transaction...");
