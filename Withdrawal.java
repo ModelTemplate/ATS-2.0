@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package atmcasestudy;
 
 /**
- *
- * @author dx200
+ * Withdrawal class
+ * @author ATS-2.0
  */
 public class Withdrawal extends Transaction {
     private Keypad keypad;
@@ -16,22 +11,21 @@ public class Withdrawal extends Transaction {
     private int account;
     private Screen screen;
     private BankDatabase database;
-    
+
     public Withdrawal(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase, Keypad keypad, CashDispenser cashDispenser) {
-        super(userAccountNumber, atmScreen,atmBankDatabase);
+    	super(userAccountNumber, atmScreen,atmBankDatabase);
         this.keypad = keypad;
         dispenser = cashDispenser;
         account = userAccountNumber;
         screen = atmScreen;
-        database = atmBankDatabase;        
-}
-    
-    @Override
+        database = atmBankDatabase;
+    }
+
     public void execute() {
-            screen.displayMessage("Enter the amount to withdraw ");
-            withdrawAmount = keypad.getInput();
-            dispenser.dispenseCash(withdrawAmount);
-            database.debit(account, withdrawAmount);
-            screen.displayMessage("Please take your cash.");
+        screen.displayMessage("Enter the amount to withdraw: ");
+        withdrawAmount = keypad.getInput();
+        dispenser.dispenseCash(withdrawAmount);
+        database.debit(account, withdrawAmount);
+        screen.displayMessage("Please take your cash.");
     }
 }
