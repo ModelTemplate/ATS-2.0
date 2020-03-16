@@ -14,6 +14,8 @@ or
 Then, type the following in command line within the working directory to create a JAR file:
 > jar cfm ATS-2.0.jar MANIFEST.txt ATMCaseStudy.class Account.class ATM.class BalanceInquiry.class BankDatabase.class CashDispenser.class Deposit.class DepositSlot.class Keypad.class Screen.class Transaction.class Withdrawal.class
 
+(MANIFEST.txt is needed to tell program where the main method is located)
+
 Finally, run the program:
 > java -jar ATS-2.0.jar
 
