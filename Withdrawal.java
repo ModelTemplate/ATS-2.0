@@ -1,5 +1,3 @@
-package atmcasestudy;
-
 /**
  * Withdrawal class
  * @author ATS-2.0

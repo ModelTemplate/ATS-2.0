@@ -1,5 +1,3 @@
-package atmcasestudy;
-
 /**
  * Deposit class
  * @author ATS-2.0

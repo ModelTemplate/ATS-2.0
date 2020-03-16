@@ -1,5 +1,3 @@
-package atmcasestudy;
-
 /**
  * BalanceInquiry class
  * @author ATS-2.0
