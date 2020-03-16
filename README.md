@@ -16,3 +16,6 @@ Then, type the following in command line within the working directory:
 
 Finally, run the program:
 > java -jar ATS-2.0.jar
+
+# Troubleshooting
+Make sure you configure PATH environment variable to use the same JDK version as the one used to compile the code, otherwise the program will not execute.
