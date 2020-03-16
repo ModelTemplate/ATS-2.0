@@ -11,7 +11,7 @@ or
 
 > javac *.java
 
-Then, type the following in command line within the working directory:
+Then, type the following in command line within the working directory to create a JAR file:
 > jar cfm ATS-2.0.jar MANIFEST.txt ATMCaseStudy.class Account.class ATM.class BalanceInquiry.class BankDatabase.class CashDispenser.class Deposit.class DepositSlot.class Keypad.class Screen.class Transaction.class Withdrawal.class
 
 Finally, run the program:
