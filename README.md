@@ -13,3 +13,6 @@ or
 
 Then, type the following in command line within the working directory:
 > jar cfm ATS-2.0.jar MANIFEST.txt ATMCaseStudy.class Account.class ATM.class BalanceInquiry.class BankDatabase.class CashDispenser.class Deposit.class DepositSlot.class Keypad.class Transaction.class Withdrawal.class
+
+Finally, run the program:
+> java -jar ATS-2.0.jar
