@@ -1,5 +1,7 @@
 /**
  * BalanceInquiry class
+ * Representing the Check Balances use case where
+ * the customer views their bank account balance
  * @author ATS-2.0
  */
 public class BalanceInquiry extends Transaction {
