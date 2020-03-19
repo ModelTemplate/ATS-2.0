@@ -1,5 +1,7 @@
 /**
  * Deposit class
+ * Representing the Deposit Funds use case where
+ * the customer adds money to their bank account
  * @author ATS-2.0
  */
 public class Deposit extends Transaction {
@@ -40,7 +42,9 @@ public class Deposit extends Transaction {
             screen.displayMessageLine( "\nCanceling transaction...");
         }
     }
-
+    
+    // displays a prompt to the user to enter the amount of money in cents
+    // they want to add
     // returns an int that represents an input from keypad
     private int promptDepositAmount() {
         screen.displayMessage("\nPlease enter a deposit amount in CENTS (or " + CANCELED + " to cancel): ");
