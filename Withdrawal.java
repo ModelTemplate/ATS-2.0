@@ -1,5 +1,7 @@
 /**
  * Withdrawal class
+ * Representing the Withdraw Cash use case where
+ * the customer takes out money from their bank account
  * @author ATS-2.0
  */
 public class Withdrawal extends Transaction {
@@ -40,7 +42,8 @@ public class Withdrawal extends Transaction {
         }
     }
 
-    // returns an integer: 20, 40, 60, 100, or 200
+    // returns an integer: 20, 40, 60, 100, or 200 that represents the amount user wants
+    // to withdraw from their bank account
     private int getWithdrawalAmount() {
     	int[] amounts = { 20, 40, 60, 100, 200, CANCELED };
 
